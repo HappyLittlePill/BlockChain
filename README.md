@@ -38,9 +38,9 @@
 
 课程大纲
 
-![image-20200719160421316](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200719160421316.png)
+![20200916201905](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200916203640.png)
 
-![image-20200719160610964](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200719160610964.png)
+![image-20200719160610964](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200916204010.png)
 
 #### 02-BTC-密码学原理
 
@@ -109,13 +109,13 @@ Hash 指针：不仅存放地址，还存放结构体的 hash 值(不光能找�
 - 与普通链表的区别：
   - 用 hash 指针代替普通指针：牵一发而动全身，任何一个区块的篡改，都会影响最后的 hash 指针和系统中对不上
 
-![image-20200720162854939](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200720162854939.png)
+![image-20200720162854939](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200916204019.png)
 
 默克尔树 Merkle tree：类似于二叉树
 
-![image-20200720153455872](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200720153455872.png)
+![image-20200720153455872](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200916235454.png)
 
-![image-20200720153839323](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200720153839323.png)
+![image-20200720153839323](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200916235459.png)
 
 由根 hash 指针确定区块是否遭到了篡改
 
@@ -131,7 +131,7 @@ Block body:存放交易的列表
 
 轻节点：只包含 Block header
 
-![image-20200720163310091](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200720163310091.png)
+![image-20200720163310091](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200916235510.png)
 
 轻节点向全节点请求 merkle proof，全节点返回给它图中标红的 hash 值，之后轻节点可以在本地计算出图中绿色的 hash 值
 
@@ -146,13 +146,13 @@ merkle tree 的作用：提供 merkle proof，证明某一交易是否存在于 
 1. 把整棵树传给轻节点。时间复杂度：$Θ（n）$
 2. 对每一个叶节点的交易取一次 hash，再排序，对比根 hash。时间复杂度:$Θ(log(n))$
 
-![image-20200720172931583](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200720172931583.png)
+![image-20200720172931583](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200916235529.png)
 
 <u>总结：比特币中两种基本数据结构——区块链、merkle tree 它们都是由 hash 指针来构造。</u>
 
 只要数据结构是无环的，都可以用 hash 指针来代替普通指针，否则会出现循环依赖。
 
-![image-20200720162744195](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200720162744195.png)
+![image-20200720162744195](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200916235529.png)
 
 #### 04-BTC-协议
 
@@ -170,7 +170,7 @@ Double spending attack：双花攻击/花两次攻击
   - version：用的是哪个比特币版本的协议
   - Hash of previous block header：指向前一个区块的指针(只对 block header 部分取 hash)
 
-  ![image-20200721141959296](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200721141959296.png)
+  ![image-20200721141959296](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200916235546.png)
 
   - merkle root hash：整颗 merkle tree 的根 hash 值(保障 block body 里 transaction list 是无法被更改的)
   - target：挖矿的难度 目标阈值的编码 nBits H(block header)≤target
@@ -212,9 +212,9 @@ CAP Theorem：任何的分布式系统中，以下 3 个性质最多只能满足
 
 分叉攻击 forking attack
 
-![image-20200721155156618](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200721155156618.png)
+![image-20200721155156618](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200916235552.png)
 
-![image-20200721155434289](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200721155434289.png)
+![image-20200721155434289](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200916235555.png)
 
 出块奖励 block reward——coinbase transaction——唯一产生比特币的途径
 
@@ -234,7 +234,7 @@ Hash rate 越高-算力越高
 
 UTXO(unspent transaction output)：还没被花出去的交易的输出——检测 double spending
 
-![image-20200722140854247](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200722140854247.png)
+![image-20200722140854247](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200916235605.png)
 
 UTXO 集合的每个元素要给出：
 
@@ -266,7 +266,7 @@ poisson process
 
 出块时间服从指数分布(exponential distribution)——性质:memoryless、progress free(挖矿公平性的保障——算力强 10 倍的矿工，挖到矿的概率也始终强 10 倍。否则超过 10 倍，就构成不成比例的差异)
 
-![image-20200722212149798](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200722212149798.png)
+![image-20200722212149798](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200916235616.png)
 
 比特币的总量
 
@@ -286,7 +286,7 @@ Bitcoin is secured by mining.
 
 ![image-20200722220714687](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200722220714687.png)
 
-![image-20200722220815274](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200722220815274.png)
+![image-20200722220815274](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200916235638.png)
 
 比特币协议规定，每个区块的大小是有限制的，最多不超过 1M。
 
@@ -294,13 +294,13 @@ selfish mining：自己挖到下一个区块后先不发布，然后继续沿着
 
 - 是分叉攻击的一种手段
 
-![image-20200722220654513](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200722220654513.png)
+![image-20200722220654513](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200916235647.png)
 
 - 减少竞争
 
-![image-20200722220558835](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200722220558835.png)
+![image-20200722220558835](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200916235656.png)
 
-![image-20200722220534832](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200722220534832.png)
+![image-20200722220534832](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200916235700.png)
 
 #### 06-BTC-网络
 
@@ -347,7 +347,7 @@ difficulty 与 target 成反比
 
 不断调整挖矿难度，是为了保持出块时间在一个常数范围波动，不能过短，否则容易造成一个区块后多分叉，不易达成共识，易遭受 51% attack！好的节点被多分叉分散了算力，而坏的节点则集中算力制造最长链，形成所谓的 51% attack。
 
-![image-20200722235820559](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200722235820559.png)
+![image-20200722235820559](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917000218.png)
 
 如何调整挖矿难度：每隔 2016 个区块，要重新调整目标阈值(约为每 2 星期调整一次)
 
@@ -364,15 +364,15 @@ expected time：要保持 10min 的出块时间间隔，2016 个区块理论上�
 3. 如果有人想要故意调低 target 的难度，方便自身挖矿，则他产出的区块的 block header 里的 nBits 编码是不会被绝大多数节点所接受的
 4. 挖矿难度 ≠ target 目标阈值 二者是成反比关系（实际比特币系统源代码中用的是目标阈值 target）
 
-![image-20200723002551945](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200723002551945.png)
+![image-20200723002551945](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917000226.png)
 
 所以要区分图中公式和本节前部分下划线处 target 计算公式的区别
 
 #### 08-BTC-挖矿
 
-![image-20200723162313183](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200723162313183.png)
+![image-20200723162313183](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917000230.png)
 
-![image-20200723162658865](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200723162658865.png)
+![image-20200723162658865](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917000239.png)
 
 比特币网络中大多是轻节点
 
@@ -435,15 +435,15 @@ expected time：要保持 10min 的出块时间间隔，2016 个区块理论上�
 
 **_交易实例_**
 
-![image-20200801151503514](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801151503514.png)
+![image-20200801151503514](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917000307.png)
 
-![image-20200801153000598](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801153000598.png)
+![image-20200801153000598](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917000329.png)
 
-![image-20200801163147657](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801163147657.png)
+![image-20200801163147657](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917000337.png)
 
-![image-20200801164751018](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801164751018.png)
+![image-20200801164751018](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917000841.png)
 
-![image-20200801165452143](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801165452143.png)
+![image-20200801165452143](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917000907.png)
 
 在早期的比特币实现中，这两个脚本是拼接在一起，从头到尾执行一遍。后来出于安全因素的考虑，这两个脚本改为分别执行。
 
@@ -457,23 +457,23 @@ expected time：要保持 10min 的出块时间间隔，2016 个区块理论上�
 
 是最简单的形式，因为 PubKey 是直接在输出脚本里给出的
 
-![image-20200801171417362](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801171417362.png)
+![image-20200801171417362](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917001052.png)
 
-![image-20200801171630302](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801171630302.png)
+![image-20200801171630302](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917001104.png)
 
 1. 把输入脚本里提供的签名压入栈
 
-![image-20200801171802520](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801171802520.png)
+![image-20200801171802520](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917001242.png)
 
 2. 把输出脚本里提供的公钥压入栈
 
-![image-20200801171906149](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801171906149.png)
+![image-20200801171906149](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917001509.png)
 
 3. 把栈顶这两个元素弹出来 用公钥检查签名是否正确。如果正确，返回 true,说明验证通过。否则执行出错，说明交易是非法的。
 
-![image-20200801172226952](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801172226952.png)
+![image-20200801172226952](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917001516.png)
 
-![image-20200801213057643](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801213057643.png)
+![image-20200801213057643](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917001525.png)
 
 **<u>2、P2PKH（Pay to Public Key Hash）</u>**
 
@@ -483,41 +483,41 @@ expected time：要保持 10min 的出块时间间隔，2016 个区块理论上�
 
 输入脚本既要给出公钥，也要给出签名
 
-![image-20200801213935005](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801213935005.png)
+![image-20200801213935005](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917001536.png)
 
 1. 先把签名压入栈
 
-![image-20200801214210321](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801214210321.png)
+![image-20200801214210321](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917001540.png)
 
 2. 把公钥压入栈
 
-![image-20200801214235899](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801214235899.png)
+![image-20200801214235899](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917001544.png)
 
 3. 把栈顶元素复制一遍 所以栈顶又多一个公钥
 
-![image-20200801214316893](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801214316893.png)
+![image-20200801214316893](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917001551.png)
 
 4. 把栈顶的元素取 hash 然后再压入栈
 
-![image-20200801214421072](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801214421072.png)
+![image-20200801214421072](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917001603.png)
 
 5. 把输出脚本里提供的公钥的 hash 值压入栈
 
-![image-20200801214505947](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801214505947.png)
+![image-20200801214505947](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917001607.png)
 
 6. 弹出栈顶的两个元素 比较它们是否相等 如果两个 hash 值相等则从栈顶消失
 
 目的在于：防止有人冒名顶替 用自己的公钥冒充收款人的公钥
 
-![image-20200801214742447](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801214742447.png)
+![image-20200801214742447](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917001615.png)
 
-![image-20200801215138668](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801215138668.png)
+![image-20200801215138668](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917001620.png)
 
 7. 弹出栈顶的两个元素 用公钥检查签名是否正确 如果签名正确，整个脚本顺利运行结束，栈顶留下 true。如果整个环节中某一处出错，则交易非法。
 
-![image-20200801215525496](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801215525496.png)
+![image-20200801215525496](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917001628.png)
 
-![image-20200801220252395](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801220252395.png)
+![image-20200801220252395](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917001645.png)
 
 **<u>3、P2SH（Pay to Script Hash）</u>**
 
@@ -525,17 +525,17 @@ expected time：要保持 10min 的出块时间间隔，2016 个区块理论上�
 
 输出脚本给出的不是收款人的公钥的 hash，而是收款人提供的脚本的 hash（redeemScript 赎回脚本）
 
-![image-20200801220835230](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801220835230.png)
+![image-20200801220835230](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917001700.png)
 
-![image-20200801221323776](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801221323776.png)
+![image-20200801221323776](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917001836.png)
 
-![image-20200801222211013](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801222211013.png)
+![image-20200801222211013](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917001850.png)
 
 **第一阶段的验证**
 
 1. 首先把输入脚本中的 sig 压入栈
 
-![image-20200801224548417](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801224548417.png)
+![image-20200801224548417](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917001857.png)
 
 seriRS：serialized RedeemScript
 
@@ -543,25 +543,25 @@ RSH：RedeemScriptHash
 
 2. 把赎回脚本压入栈
 
-![image-20200801224738557](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801224738557.png)
+![image-20200801224738557](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917002020.png)
 
 3. 取 hash 得到赎回脚本的 hash
 
-![image-20200801224816398](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801224816398.png)
+![image-20200801224816398](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917002009.png)
 
 4. 把输出脚本里给出的 hash 值压入栈
 
-![image-20200801224932755](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801224932755.png)
+![image-20200801224932755](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917002251.png)
 
 5. 比较两个 hash 值是否相等 如果相等，这两个 hash 值就从栈顶消失
 
-![image-20200801225042704](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801225042704.png)
+![image-20200801225042704](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917002309.png)
 
 **第二阶段的验证**
 
 1. 把输入脚本里给出的序列化的赎回脚本反序列化（每个节点自己完成）
 
-![image-20200801225503829](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801225503829.png)
+![image-20200801225503829](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917002322.png)
 
 2. 执行赎回脚本的内容 首先把 PubKey 压入栈
 
@@ -569,7 +569,7 @@ RSH：RedeemScriptHash
 
 3. 用 CHECKSIG 验证输入脚本里给出的 signature 的正确性
 
-![image-20200801225633888](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801225633888.png)
+![image-20200801225633888](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917002329.png)
 
 P2SH 最开始是没有的，是通过软分叉加入。
 
@@ -577,7 +577,7 @@ P2SH 最开始是没有的，是通过软分叉加入。
 
 比特币系统中一个输出可能需要多个签名才能取出钱（防止其中某个合伙人私钥泄露被盗币，或是其中某个合伙人忘记私钥而大家都取不出钱来。以此提供安全性保护）
 
-![image-20200731224330201](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200731224330201.png)
+![image-20200731224330201](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917080323.png)
 
 表示：N 个合伙人中，只用给出 M 个合伙人的签名即可
 
@@ -587,31 +587,31 @@ P2SH 最开始是没有的，是通过软分叉加入。
 
 1. 两个签名要跟它们在公钥中的顺序一致（第 1 个公钥在第 2 个公钥的前面，所以第 1 个签名也要在第 2 个签名的前面）
 
-![image-20200801144906946](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801144906946.png)
+![image-20200801144906946](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917080335.png)
 
 2. 把多余的元素 FALSE 压入栈
 
-![image-20200801144931207](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801144931207.png)
+![image-20200801144931207](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917080902.png)
 
 3. 把两个签名依次压入栈。此时输入脚本执行完毕。
 
-![image-20200801145339053](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801145339053.png)
+![image-20200801145339053](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917080916.png)
 
 4. 接着把输出脚本的里的阈值 M 压入栈
 
-![image-20200801145458024](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801145458024.png)
+![image-20200801145458024](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917080947.png)
 
 5. 依次把 3 个公钥压入栈
 
-![image-20200801145619327](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801145619327.png)
+![image-20200801145619327](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917102850.png)
 
 6. 把 N 的值压入栈
 
-![image-20200801145648008](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801145648008.png)
+![image-20200801145648008](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917102858.png)
 
 7. 最后执行 CHECKMULTISIG，检查堆栈里是否包含了 3 个签名中的 2 个。如果是，则验证通过。
 
-![image-20200801145858821](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200801145858821.png)
+![image-20200801145858821](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917102905.png)
 
 **用 P2SH 实现多重签名**
 
@@ -619,59 +619,59 @@ P2SH 最开始是没有的，是通过软分叉加入。
 
 用户只用知道电商提供的 RedeemScriptHash 就可以了，至于电商采用什么样的多重签名规则是无需知道的。在电商需要花这笔钱时，只用在输入脚本给出对应的签名和序列化的赎回脚本即可。
 
-![image-20200802133035049](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200802133035049.png)
+![image-20200802133035049](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917102911.png)
 
 脚本执行：
 
 1. 先把解决 CHECKMULTISIG 的 bug 的无用元素 false 压入栈
 
-![image-20200802133207960](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200802133207960.png)
+![image-20200802133207960](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917102917.png)
 
 2. 把签名压入栈
 
-![image-20200802133233477](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200802133233477.png)
+![image-20200802133233477](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917102928.png)
 
 3. 把序列化的赎回脚本压入栈
 
-![image-20200802133309619](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200802133309619.png)
+![image-20200802133309619](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917102935.png)
 
 4. 把栈顶元素取 hash
 
-![image-20200802133350102](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200802133350102.png)
+![image-20200802133350102](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917102943.png)
 
 5. 把输出里提供的赎回脚本的 hash 值压入栈
 
-![image-20200802133422336](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200802133422336.png)
+![image-20200802133422336](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917102951.png)
 
 6. 判断两个 hash 值是否相等
 
-![image-20200802133448766](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200802133448766.png)
+![image-20200802133448766](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917102957.png)
 
 7. 把赎回脚本展开后执行
 
-![image-20200802133518546](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200802133518546.png)
+![image-20200802133518546](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917103003.png)
 
 8. 先把 M 压入栈
 
-![image-20200802133607216](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200802133607216.png)
+![image-20200802133607216](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917103121.png)
 
 9. 把 3 个公钥压入栈
 
-![image-20200802133633403](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200802133633403.png)
+![image-20200802133633403](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917103127.png)
 
 10. 把 N 压入栈
 
-![image-20200802133651053](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200802133651053.png)
+![image-20200802133651053](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917103152.png)
 
 11. 检查多重签名的正确性 3 个里面有 2 个是正确的即验证通过
 
-![image-20200802133740186](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200802133740186.png)
+![image-20200802133740186](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917103203.png)
 
 使用 P2SH 作多重签名的实例
 
 现在的多重签名多是采用 P2SH 的形式
 
-![image-20200803004036566](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200803004036566.png)
+![image-20200803004036566](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917103211.png)
 
 **<u>4、Proof of Burn</u>**
 
@@ -679,16 +679,16 @@ P2SH 最开始是没有的，是通过软分叉加入。
 
 RETURN 后面跟 0 个或多个操作，但都返回 false，不会被执行
 
-![image-20200803005955361](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200803005955361.png)
+![image-20200803005955361](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917103224.png)
 
 应用场景：
 
 - 销毁一定数额的比特币，来换取其他小的币种(AltCoin Alternative Coin)
 - 利用区块链不可篡改的特性，来写入一些想要长久保留下来的信息（digital commitment）。例如想要保护自己的知识产权，将知识产权的内容取 hash，放在 RETURN 语句之后。任何用户都可以利用销毁很少一点比特币，换取往区块链里写入一些内容的机会（铸币交易的 coinbase 域也可以实现相同功能，但是只有拥有记账权的人才能往里写东西，是发布区块的人；而 Proof of Burn 是任何人都可以写入，是相当于发布一个交易）
 
-![Snipaste_2020-08-03_01-05-59](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/Snipaste_2020-08-03_01-05-59.png)
+![Snipaste_2020-08-03_01-05-59](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917103242.png)
 
-![image-20200803011033369](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200803011033369.png)
+![image-20200803011033369](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917104507.png)
 
 这种形式的脚本的好处是，矿工看到这种脚本时，知道输出永远不可能兑现，所以就没有必要保存到 UTXO 里面，对全节点友好。
 
@@ -716,13 +716,13 @@ RETURN 后面跟 0 个或多个操作，但都返回 false，不会被执行
 
 例如：增加区块大小限制（block size limit）1M—>4M
 
-![image-20200804133648907](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200804133648907.png)
+![image-20200804133648907](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917104604.png)
 
 认可新特性的新节点算力占大头，当出现分叉时，更容易使包含 4M 大小的区块成为最长链，且新节点也兼容旧节点，它同样认可 1M 大小的区块，当之后最长链上有 1M 区块时，新节点是可以继续沿着挖下去，而旧节点不会，因为前面出现过 4M 区块，旧节点就会认为整个链是不合法的。最终会出现两条平行链，双方各挖各的，新节点始终沿着上面挖（因为算力强，可以始终保持最长链，区块大小有大有小），旧节点始终沿着下面挖（因为上面链尽管保持最长链，但里面存在有大区块始终会被视作非法链）。
 
 两条链会各加一个 chain ID，防止在另一条链上重放、回滚交易，非法获利。
 
-![image-20200804143353953](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200804143353953.png)
+![image-20200804143353953](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917232441.png)
 
 <u>软分叉</u>
 
@@ -730,7 +730,7 @@ RETURN 后面跟 0 个或多个操作，但都返回 false，不会被执行
 
 例如：减小区块大小 1M—>0.5M
 
-![image-20200804142056987](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200804142056987.png)
+![image-20200804142056987](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917232451.png)
 
 系统**不会有永久性的分叉**（硬分叉是永久性的），旧节点如果不尽快升级软件，很可能很多区块都白挖了。
 
@@ -816,7 +816,7 @@ P2SH 的验证要分两个阶段：
 
 零知识证明
 
-![image-20200806162352523](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200806162352523.png)
+![image-20200806162352523](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917232504.png)
 
 一个有争议的例子：证明一个账户属于我，即我知道这个账户的私钥。我不能直接给出账户的私钥，但可以给出用这个私钥做出的签名，验证者可用该账户的公钥来进行验证。
 
@@ -824,7 +824,7 @@ P2SH 的验证要分两个阶段：
 
 同态隐藏——零知识证明的基础
 
-![image-20200806163134606](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200806163134606.png)
+![image-20200806163134606](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917232514.png)
 
 解释：
 
@@ -832,15 +832,15 @@ P2SH 的验证要分两个阶段：
 2. 加密函数是不可逆的：知道加密后的值，无法推出加密前输入的值（和 hash 函数的 hiding property 是类似的）
 3. 同态运算：加密后值的和=求和后再加密、加密后值的积=乘积后再加密
 
-![image-20200809151836672](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200809151836672.png)
+![image-20200809151836672](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917232522.png)
 
-![image-20200809151903249](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200809151903249.png)
+![image-20200809151903249](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917232531.png)
 
 盲签名
 
 在不知道具体内容时，还要对它签名
 
-![image-20200809153111862](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200809153111862.png)
+![image-20200809153111862](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917232539.png)
 
 零币和零钞
 
@@ -848,11 +848,11 @@ P2SH 的验证要分两个阶段：
 
 在与现实世界交互时，仍有可能暴露身份，不能百分百匿名。
 
-![image-20200809153407534](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200809153407534.png)
+![image-20200809153407534](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917232548.png)
 
 #### 13-BTC-思考
 
-![image-20200814162254521](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200814162254521.png)
+![image-20200814162254521](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917232559.png)
 
 - 哈希指针：hash 值本身就是指针，其性质保障整个区块链的内容是不可篡改的
 
@@ -901,13 +901,13 @@ Ethereum：decentralized contract
 
 每笔交易必须给出币的来源，没花完的币还要新建一个账户，再转回给自己的新账户
 
-![image-20200815165720218](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200815165720218.png)
+![image-20200815165720218](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917232615.png)
 
 以太坊：基于账户的账本
 
 显式记录账户余额，每次交易不用给出币的来源，会自动查询账户下是否有足够的余额，天然防范 double spending attack
 
-![image-20200815171327580](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200815171327580.png)
+![image-20200815171327580](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917232624.png)
 
 防范重放攻击（replay attack）：用一个计数器 nonce 值来记录某账户从一开始到现在，一共完成了多少笔交易。交易数 nonce 值和余额 balance 值一起由全节点维护。
 
@@ -915,7 +915,7 @@ Ethereum：decentralized contract
 
 合约账户（smart contract account）：不能主动发起一个交易，可以调用另外一个合约（合约在创建时会返回一个地址，通过地址就可以调用合约）
 
-![image-20200816144232144](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200816144232144.png)
+![image-20200816144232144](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200917232632.png)
 
 以太坊支持智能合约，合约要求参与者有比较稳定的身份，如果有隐私保护的需要，也可以创建多个账户进行不同的交易
 
@@ -947,17 +947,17 @@ trie 树（字典树）结构的特点：
 
    【引入 patricia tree/patricia trie 压缩前缀树 进行路径压缩，树变浅了，访问内存的次数也会减少，效率就提高了。但是如果新插入一个单词，原来压缩的路径可能就需要扩展开来。】
 
-![image-20200816214856451](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200816214856451.png)
+![image-20200816214856451](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain@master/img/20200917232908.png)
 
-![image-20200816214927892](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200816214927892.png)
+![image-20200816214927892](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918103119.png)
 
 【树中插入的键值分布比较稀疏时，路径压缩效果比较好。】
 
-![image-20200816215450806](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200816215450806.png)
+![image-20200816215450806](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918103132.png)
 
 用 patricia trie 之后的结果：
 
-![image-20200816215525266](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200816215525266.png)
+![image-20200816215525266](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918103200.png)
 
 在以太坊中，键值是 160 位地址，整个地址空间非常大，分布就很稀疏，用户账户也很难发生碰撞。
 
@@ -967,7 +967,7 @@ MPT（Merkle Patricia tree）
 
 Modified MPT
 
-![image-20200817162226364](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200817162226364.png)
+![image-20200817162226364](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918103210.png)
 
 1 nibble = 1 个 16 进制数 = 4bit = 半字节
 
@@ -975,7 +975,7 @@ Prefix 前缀区分扩展节点、叶子节点和奇数个、偶数个
 
 每个 key 对应的 value 值是下一个节点地址的 hash 值，用的是 hash 指针
 
-![image-20200817200542305](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200817200542305.png)
+![image-20200817200542305](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918103224.png)
 
 系统中每个全节点，需要维护的不是一颗 MPT，而是每产生一个区块，都要新建一个 MPT，只不过状态树中大部分节点都是共享的，只有少数发生变化的节点要新建分支。
 
@@ -983,15 +983,15 @@ Prefix 前缀区分扩展节点、叶子节点和奇数个、偶数个
 
 **以太坊中代码的一些数据结构：**
 
-![image-20200817213236757](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200817213236757.png)
+![image-20200817213236757](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918103254.png)
 
 **区块的结构：**
 
-![image-20200817213453564](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200817213453564.png)
+![image-20200817213453564](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918103333.png)
 
 **区块真正在网上发布的时候，发布的信息：**
 
-![image-20200817213603906](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200817213603906.png)
+![image-20200817213603906](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918103427.png)
 
 状态树中保存的是（key，value）—— key：地址 value：账户的状态
 
@@ -1025,39 +1025,39 @@ Bloom filter 数据结构支持高效的查找，判断某个元素是否在某�
 
 区块中的数据结构：
 
-![image-20200818185020190](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200818185020190.png)
+![image-20200818185020190](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918103652.png)
 
-![image-20200818185233097](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200818185233097.png)
+![image-20200818185233097](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918103710.png)
 
-![image-20200818185306988](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200818185306988.png)
+![image-20200818185306988](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918103729.png)
 
-![image-20200818185339471](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200818185339471.png)
+![image-20200818185339471](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918103806.png)
 
-![image-20200818191628096](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200818191628096.png)
+![image-20200818191628096](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918103927.png)
 
-![image-20200818191602389](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200818191602389.png)
+![image-20200818191602389](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918103934.png)
 
-![image-20200818193441230](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200818193441230.png)
+![image-20200818193441230](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918103944.png)
 
-![image-20200818193625087](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200818193625087.png)
+![image-20200818193625087](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918103958.png)
 
-![image-20200818193748902](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200818193748902.png)
+![image-20200818193748902](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918104023.png)
 
-![image-20200818193913339](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200818193913339.png)
+![image-20200818193913339](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918104102.png)
 
-![image-20200818193951336](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200818193951336.png)
+![image-20200818193951336](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918104112.png)
 
 #### 18-ETH-GHOST
 
 比特币和以太坊都是运行在应用层的，以太坊采用基于 ghost 协议的共识机制。
 
-![image-20200819133849124](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200819133849124.png)
+![image-20200819133849124](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918104123.png)
 
 最长链上新产出的区块，可以合并最多两个叔父区块，这样叔父区块可以获得安慰奖励（出块奖励值 ×7/8），合并他们的区块，可以获得额外奖励（每合并一个叔父区块，额外奖励出块奖励值 ×1/32）
 
-![image-20200819143111299](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200819143111299.png)
+![image-20200819143111299](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918104143.png)
 
-![image-20200819145221596](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200819145221596.png)
+![image-20200819145221596](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918104150.png)
 
 鼓励出现分叉后，尽早进行合并。包含叔父区块的话，不论是哪一辈的叔父，额外奖励都是 1/32。
 
@@ -1065,13 +1065,13 @@ Bloom filter 数据结构支持高效的查找，判断某个元素是否在某�
 
 只有分叉过后的第一个区块能够得到 uncle reward，之后跟在它后面的区块都得不到任何奖励，否则分叉攻击的代价就很小，风险就降低了。如下例中 A 想要回滚本次交易，发动分叉攻击，如果攻击失败，整条链还能被当做叔父链获得安慰奖励的话，分叉攻击付出的代价就大大减小了。所以还是鼓励及时合并分叉。
 
-![image-20200819160552911](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200819160552911.png)
+![image-20200819160552911](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918104423.png)
 
 **以太坊中的实例：**
 
-![image-20200819162404569](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200819162404569.png)
+![image-20200819162404569](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918104432.png)
 
-![image-20200819162947295](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200819162947295.png)
+![image-20200819162947295](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918104506.png)
 
 #### 19-ETH-挖矿算法
 
@@ -1081,15 +1081,15 @@ Bloom filter 数据结构支持高效的查找，判断某个元素是否在某�
 
 dataset 里的每个元素，都是从 cache 里，按照伪随机的顺序，读取 256 个数，不断进行迭代更新，最后得到一个 hash 值，存入 dataset 里。
 
-![image-20200819211035348](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200819211035348.png)
+![image-20200819211035348](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918104524.png)
 
-![](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200819212627958.png)
+![](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918104533.png)
 
-![image-20200820150450681](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200820150450681.png)
+![image-20200820150450681](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918104542.png)
 
-![image-20200820151655383](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200820151655383.png)
+![image-20200820151655383](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918104808.png)
 
-![image-20200820152537316](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200820152537316.png)
+![image-20200820152537316](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918104822.png)
 
 以太坊的挖矿算法 ethash，矿工挖矿需要 1G 内存，对大内存的需求使得以太坊的挖矿主要是 GPU 挖矿，达到了 ASIC resistance。
 
@@ -1107,53 +1107,53 @@ Hashrate：系统中所有矿工每秒计算的 hash 次数
 
 比特币每隔 2016 个区块才会调整挖矿难度，以太坊是每个区块都有可能调整挖矿难度。
 
-![image-20200821140456074](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200821140456074.png)
+![image-20200821140456074](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918105556.png)
 
-![image-20200821140942717](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200821140942717.png)
+![image-20200821140942717](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918105606.png)
 
 x 是难度调整幅度最小单位
 
-![image-20200821141458006](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200821141458006.png)
+![image-20200821141458006](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918105614.png)
 
-![image-20200821154615000](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200821154615000.png)
+![image-20200821154615000](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918105622.png)
 
 PoS 协议：proof of stake 权益证明
 
 难度炸弹设计的初衷是，以太坊共识未来会由工作量证明转为权益证明，权益证明不需要挖矿，以前投入巨额代价买矿机的矿工就会赔本，为了不使这些亏本矿工联合起来发动硬分叉攻击导致分裂成两个社区，就设计一个难度炸弹，起初挖矿的难度主要是由出块的时间间隔来决定。而难度炸弹是指数函数，到达某个值时，挖矿难度会呈指数级别增长，这时继续挖矿难度会越来越大，迫使矿工们不得不迁移到 PoS 协议。但 PoS 协议开发难度超乎预期，未在指定时间内发布，而挖矿难度又日趋爆炸增长如下图所示，就出现用 H<sup>‘</sup><sub>i</sub>代替原来的 H<sub>i</sub>，让原来真正的区块序号减少三百万个，为权益证明开发争取了时间。
 
-![image-20200821160015536](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200821160015536.png)
+![image-20200821160015536](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918105631.png)
 
-![image-20200821160238923](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200821160238923.png)
+![image-20200821160238923](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918105641.png)
 
-![image-20200821161503334](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200821161503334.png)
+![image-20200821161503334](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918105653.png)
 
-![image-20200821172547451](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200821172547451.png)
+![image-20200821172547451](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918105707.png)
 
-![image-20200821180443595](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200821180443595.png)
+![image-20200821180443595](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918105731.png)
 
 早期挖矿难度的调整是以稳定出块时间为准的
 
-![image-20200821181150331](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200821181150331.png)
+![image-20200821181150331](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918105744.png)
 
 #### 21-ETH-权益证明
 
 比特币总能耗
 
-![image-20200821182715191](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200821182715191.png)
+![image-20200821182715191](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918105757.png)
 
-![image-20200821182735726](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200821182735726.png)
+![image-20200821182735726](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918105806.png)
 
-![image-20200821182756536](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200821182756536.png)
+![image-20200821182756536](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918105853.png)
 
 以太坊总能耗
 
-![image-20200821182815696](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200821182815696.png)
+![image-20200821182815696](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918105907.png)
 
-![image-20200821182852969](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200821182852969.png)
+![image-20200821182852969](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918105915.png)
 
 把比特币+以太坊消耗的总能耗当做一个整体，在国家能源消耗中排第 34 名
 
-![image-20200821182957684](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200821182957684.png)
+![image-20200821182957684](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918105930.png)
 
 权益证明的基本思想（virtual mining）：比特币和以太坊所采用的的工作量证明共识机制，归根结底比拼的是算力，而算力又归根于财力，财力越大，记账权越大。但工作量证明需要挖矿，挖矿需要花费大量能耗，也需要开发专门的矿机。既然归根结底是比钱多钱少，为什么不直接用财力来代替算力，根据财力的比重，来划分收益的比重。大家都把钱集中起来进行区块链的开发和维护，后期再按前期 pre-mining 时持有货币的数量，来参与投票，分配之后的收益。
 
@@ -1176,9 +1176,9 @@ Casper 协议引入验证者 validator，要成为 validator 必须投入一点�
 
 而实际不再区分两个 message，每个 epoch 从原来 100 区块减少到 50 个，每个 epoch 只投 1 次票，对于前一个 epoch 来说是 commit message，对于后一个 epoch 来说是 prepare message，前后连续 2 个 epoch 都有超过 2/3 投票，才算有效。
 
-![image-20200821220016116](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200821220016116.png)
+![image-20200821220016116](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918105939.png)
 
-![image-20200821220339853](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200821220339853.png)
+![image-20200821220339853](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918105947.png)
 
 EOS 加密货币——权益证明，完全不用挖矿
 
@@ -1199,7 +1199,7 @@ code：合约代码
 storage：存储，数据结构是一棵 MPT
 ➢Solidity 是智能合约最常用的语言，语法上与 JavaScript 很接近
 
-![image-20200822134803138](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200822134803138.png)
+![image-20200822134803138](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918105955.png)
 
 Solidity 是面向对象的编程语言 强类型语言
 
@@ -1219,27 +1219,27 @@ Solidity 语言中定义构造函数 2 种方法：（构造函数只能有一�
 
 <u>外部账户如何调用智能合约？</u>
 
-![image-20200822135703210](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200822135703210.png)
+![image-20200822135703210](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918110005.png)
 
 <u>一个合约如何调用另个合约中的函数？</u>
 
 1、直接调用
 
-![image-20200822140325022](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200822140325022.png)
+![image-20200822140325022](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918110012.png)
 
 说明：以太坊中规定，一个交易只能由外部账户发起，合约账户不能够自己主动发起一个交易。所以本例实际为一个外部账户，调用了合约 B 中的函数，再调用合约 A 中的函数。
 
 2、使用 address 类型的 call()函数
 
-![image-20200822141618059](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200822141618059.png)
+![image-20200822141618059](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918110026.png)
 
 两种方法的区别：在错误处理上，第一种被调合约返回错误，调用合约也会回滚；第二种被调合约返回错误，调用合约只会返回错误，不会受影响。
 
 3、代理调用 delegatecall()
 
-![image-20200822141847625](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200822141847625.png)
+![image-20200822141847625](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918110034.png)
 
-![image-20200822144405288](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200822144405288.png)
+![image-20200822144405288](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918110042.png)
 
 **智能合约的创建和运行**
 ➢ 智能合约的代码写完后，要编译成 bytecode
@@ -1253,17 +1253,17 @@ Solidity 语言中定义构造函数 2 种方法：（构造函数只能有一�
 
 - 调用智能合约的交易发布到区块链上后，每个矿工都会执行这个交易，从当前状态确定性地转移到下一个状态
 
-![image-20200822155345623](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200822155345623.png)
+![image-20200822155345623](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918110057.png)
 
 每个交易处理具有原子性，要么不处理，要么一次处理完，如果交易执行过程中，汽油费不够，会回滚到交易执行前的状态，且不退已经付的汽油费。
 
-![image-20200822160233164](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200822160233164.png)
+![image-20200822160233164](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918110108.png)
 
-![image-20200822161814052](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200822161814052.png)
+![image-20200822161814052](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918110132.png)
 
 比特币中限制区块的大小不超过 1M，这是写死在比特币协议之中，不可更改；以太坊中限制区块大小的是 gaslimit，每个矿工在出块时，可以在上一个区块的基础上，上调或下调 1/1024。
 
-![image-20200822200551368](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200822200551368.png)
+![image-20200822200551368](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918110140.png)
 
 智能合约执行过程中，任何对状态的修改，都是在改全节点本地的数据结构，只有在合约执行完了，发布到区块链上之后，本地的修改才会变成外部可见的，才会变成区块链上的共识。
 
@@ -1275,45 +1275,45 @@ Solidity 语言中定义构造函数 2 种方法：（构造函数只能有一�
 
 发布到区块链上的交易不一定都是成功执行的，因为及时交易执行失败，还是会被发布出去，这样在本地调用合约的这个账户的汽油费才能被真正扣掉，转给矿工自己。
 
-![image-20200823121920064](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200823121920064.png)
+![image-20200823121920064](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918110158.png)
 
 Solidity 不支持多线程，因为多个核对内存访问顺序不同的话，执行结果有可能是不确定的。而以太坊是交易驱动的状态机，要求每个状态是完全确定性的。
 
 任何可能导致状态不确定的操作在以太坊中是不可行的，所以在以太坊中不能使用真正的随机数，都是用的伪随机数，不然在不同的全节点验证都不通过。
 
-![image-20200823122020190](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200823122020190.png)
+![image-20200823122020190](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918110205.png)
 
-![image-20200823124051888](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200823124051888.png)
+![image-20200823124051888](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918110257.png)
 
-![image-20200823124218150](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200823124218150.png)
+![image-20200823124218150](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918110317.png)
 
-![image-20200823162251453](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200823162251453.png)
+![image-20200823162251453](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918110326.png)
 
-![image-20200823162450166](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200823162450166.png)
+![image-20200823162450166](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918110641.png)
 
-![image-20200823163040201](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200823163040201.png)
+![image-20200823163040201](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918110651.png)
 
-![image-20200823171445391](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200823171445391.png)
+![image-20200823171445391](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918110700.png)
 
 问：出现一个黑客，利用自己的外部账户，也调用一个合约来参与竞拍，但他写的合约里，没有 fallback()函数。当竞拍结束，需要退回竞拍失败者以太币和把最高出价发送给受益人时，到退款转账给黑客合约账户时就会抛出错误（因为没写 fallback()函数），这个时候因为转账采用的是 transfer 的方式，出现错误会连锁回滚，回滚只会回到 auctionEnd()执行之前，而所有竞拍者转账给竞拍合约账户的交易都已经被写入区块链没法更改，此时所有的人都没法取回以太币，包括受益者。有解决办法吗？
 
-![image-20200823185528698](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200823185528698.png)
+![image-20200823185528698](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918110708.png)
 
 答：没有解决办法。
 
 Code is law：智能合约的规则是由代码逻辑决定的，代码一旦发布到区块链上，就不可更改了。好处是没人能够篡改规则，坏处是规则中有漏洞也没法更改。所以智能合约写得不好，就有可能把以太币永久得锁起来，谁也取不出来。
 
-![image-20200823221046801](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200823221046801.png)
+![image-20200823221046801](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918110739.png)
 
 右边先账户清零，再转账，转账不成功再恢复的操作，是和其他合约发送交互的经典编程模式。
 
 在区块链上，任何未知的合约，都可能是有恶意的。所以每次向对方转账，或是调用对方某个函数时，需要时刻提防对方合约反调用自己的合约并修改状态。
 
-![image-20200823221132701](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200823221132701.png)
+![image-20200823221132701](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918110751.png)
 
 左边账户清零的操作，只有当上一步转账操作结束后才能执行，而上一步的转账操作又陷入了与右边 fallback()函数的递归调用中，根本执行不到清零操作，只要判断条件成立（拍卖合约账户余额>退款给黑客的金额 且 当前调用还剩的汽油费>6000 且 调用栈的深度<500），合约账户就会一直向黑客账户转账。
 
-![image-20200823221252732](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200823221252732.png)
+![image-20200823221252732](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918110825.png)
 
 修改方法：先清零，再转账，如果转账失败再恢复。且使用 send 函数替代 call.value，因为 send 函数转账时向对方合约账户发送 2300 汽油费，这点汽油费只够对方合约写个 log，不足以发起下一次调用。
 
@@ -1376,19 +1376,19 @@ DAC：Decentralized Autonomous Corporation 去中心化的自治公司
 
 **美链里因为 batchTransfer 函数，发起的攻击：**
 
-![image-20200825150242423](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200825150242423.png)
+![image-20200825150242423](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918110847.png)
 
-![image-20200825150635573](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200825150635573.png)
+![image-20200825150635573](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918110857.png)
 
-![image-20200825150734542](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200825150734542.png)
+![image-20200825150734542](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918110907.png)
 
-![image-20200825150749265](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200825150749265.png)
+![image-20200825150749265](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918110914.png)
 
-![image-20200825150954699](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200825150954699.png)
+![image-20200825150954699](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918110922.png)
 
 反思：在进行数值运算时，一定要考虑溢出的可能性。
 
-![image-20200825151015367](%E5%8C%BA%E5%9D%97%E9%93%BE%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8.assets/image-20200825151015367.png)
+![image-20200825151015367](https://cdn.jsdelivr.net/gh/HappyLittlePill/BlockChain/img/20200918110933.png)
 
 Solidity 语言提供了一个 SafeMath 库，调用该库函数进行数值运算，可以轻易检测出是否发生溢出。
 
@@ -1399,3 +1399,4 @@ Solidity 语言提供了一个 SafeMath 库，调用该库函数进行数值运�
 加密货币不应该用在当下常规货币使用得很好的领域，而应该用在已有的支付方式解决得不是很好的领域。如： 全球范围内的支付，缺乏统一的流通货币 information can flow freely on the internet,but payment cannot。未来发展预测支付渠道和信息传播渠道逐渐融合，使得价值交换变得和信息传播一样方便。
 
 判断一种支付手段效率的高低，要在当时的历史条件下去看，跟当时存在的其他支付手段作对比。
+
